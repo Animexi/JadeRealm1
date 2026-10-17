@@ -1,0 +1,28 @@
+name: LiteKits
+main: Imperial\Kits\Main
+version: 1.0.0
+api: [3.0.0, 3.0.1]
+load: POSTWORLD
+author: ImperialTeam
+description: §6Небесная Империя§f — киты по весу ранга (LiteCore v1.0.9, API 3.0.0)
+softdepend: [LiteRanks, LiteRegister]
+
+commands:
+  kit:
+    description: Киты Поднебесной — список и получение
+    usage: "/kit [номер|help]"
+    aliases: [kits, кит, киты]
+
+permissions:
+  lc.kits.*:
+    default: false
+    description: Все права LiteKits
+    children:
+      lc.kits.use: true
+      lc.kits.admin: true
+  lc.kits.use:
+    default: true
+    description: Использование /kit (доступ к китам по весу ранга)
+  lc.kits.admin:
+    default: op
+    description: Обход кулдауна и веса ранга при получении китов

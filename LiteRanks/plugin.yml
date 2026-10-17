@@ -1,0 +1,40 @@
+name: LiteRanks
+main: Imperial\Ranks\Main
+version: 1.0.0
+api: [3.0.0, 3.0.1]
+load: POSTWORLD
+author: ImperialTeam
+description: §6Небесная Империя§f — донат-ранги и печати (LiteCore v1.0.9, API 3.0.0)
+softdepend: [LiteRegister]
+
+commands:
+  prefix:
+    description: Выбрать отображаемую печать (префикс)
+    usage: "/prefix [номер|reset]"
+    aliases: [print, печ]
+  myrank:
+    description: Показать свой текущий ранг и печать
+    usage: "/myrank"
+    aliases: [мойранг, myranks]
+  rank:
+    description: Управление рангами (админ)
+    usage: "/rank <give|remove|set|list|info>"
+    aliases: [ranks, ранги]
+
+permissions:
+  lc.ranks.*:
+    default: false
+    description: Все права LiteRanks
+    children:
+      lc.ranks.admin: true
+      lc.ranks.prefix: true
+      lc.ranks.myrank: true
+  lc.ranks.prefix:
+    default: true
+    description: Использование /prefix
+  lc.ranks.myrank:
+    default: true
+    description: Использование /myrank
+  lc.ranks.admin:
+    default: op
+    description: Админ-команды рангов (give, remove, set, list, info)

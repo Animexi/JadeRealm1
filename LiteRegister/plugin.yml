@@ -1,0 +1,46 @@
+name: LiteRegister
+main: Imperial\Register\Main
+version: 1.0.0
+api: [3.0.0, 3.0.1]
+load: POSTWORLD
+author: ImperialTeam
+description: §6Небесная Империя§f — регистрация и авторизация (LiteCore v1.0.9, API 3.0.0)
+
+commands:
+  register:
+    description: Зарегистрироваться в Небесной Империи
+    usage: "/register <пароль> <повтор>"
+    aliases: [reg, zareg]
+  login:
+    description: Войти в Небесную Империю
+    usage: "/login <пароль>"
+    aliases: [l, vho]
+  changepassword:
+    description: Сменить пароль аккаунта
+    usage: "/changepassword <старый> <новый>"
+    permission: lc.register.changepassword
+    aliases: [changepass, chgpass]
+  unregister:
+    description: Удалить аккаунт игрока (админ)
+    usage: "/unregister <ник>"
+    permission: lc.register.admin
+    aliases: [unreg, delaccount]
+  lcreload:
+    description: Перезагрузить конфиг LiteRegister
+    usage: "/lcreload"
+    permission: lc.register.admin
+    aliases: [lrreload]
+
+permissions:
+  lc.register.*:
+    default: false
+    description: Все права LiteRegister
+    children:
+      lc.register.changepassword: true
+      lc.register.admin: true
+  lc.register.changepassword:
+    default: true
+    description: Смена собственного пароля
+  lc.register.admin:
+    default: op
+    description: Админ-команды (unregister, reload)
